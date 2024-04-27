@@ -1,3 +1,29 @@
+<style>
+    /* CSS Styling for the table */
+    .fashionable-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .fashionable-table th, .fashionable-table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .fashionable-table th {
+        background-color: #f2f2f2;
+    }
+
+    .fashionable-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .fashionable-table tbody tr:hover {
+        background-color: #ddd;
+    }
+</style>
+
 <?php
 
 
