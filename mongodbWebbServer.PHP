@@ -61,6 +61,17 @@ $cursor = $mongoClient->executeCommand('exjobb2', $command);
 $allDocuments = iterator_to_array($cursor);
 $documentCount = count($allDocuments);
 
+if ($documentCount > 0) {
+    echo '<table class="fashionable-table">';
+    echo '<thead>
+            <tr>
+                <th>Book Id</th>  
+                <th>Author Name</th>
+                <th>Book Title</th>  
+                <th>Serie Title</th>
+            </tr>
+        </thead>';
+    echo '<tbody>';
 
 }
 ?>
