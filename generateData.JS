@@ -13,3 +13,8 @@ let mysqlCon = mysql.createConnection({
     database: "exjobb"
 })
 mysqlCon.connect();
+
+
+let bookID = 1;
+let authID = 1; 
+let serieId = 1;
