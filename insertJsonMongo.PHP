@@ -8,4 +8,8 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
+//Hämta allt från tabellen
+$sql = "SELECT * FROM `författare`";
+$result = mysqli_query($mysqli, $sql);
+
 ?>
