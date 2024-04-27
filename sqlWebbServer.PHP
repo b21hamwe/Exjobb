@@ -13,14 +13,14 @@
         $search = $_POST['search'];
 
 
- //Medel Query
- $sql = "SELECT * FROM `författare` 
- JOIN `bok` ON författare.id = bok.id
- JOIN `bokserie` ON bok.id = bokserie.id
- WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
+    //Medel Query
+    $sql = "SELECT * FROM `författare` 
+    JOIN `bok` ON författare.id = bok.id
+    JOIN `bokserie` ON bok.id = bokserie.id
+    WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
 
- //Enkel Query
- //$sql = "SELECT * FROM `författare` WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
+    //Enkel Query
+    //$sql = "SELECT * FROM `författare` WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
 
 $result = mysqli_query($mysqli, $sql);
 
@@ -36,6 +36,19 @@ if($result && mysqli_num_rows($result) > 0) {
                       <th>Serie title</th>
                   </tr>
               </thead>';
+              echo '<tbody>';
+              while ($row = mysqli_fetch_assoc($result)) {
+                  echo '<tr>
+                          <td>'.$row['id'].'</td>
+                          <td>'.$row['namn'].'</td>
+                          <td>'.$row['boktitel'].'</td>
+                          <td>'.$row['serietitel'].'</td>
+                        </tr>';
+              }
+              echo '</tbody>';
+              echo '</table>';
+          } else {
+              echo '<h2>Data not found</h2>';
 }
 
     }
