@@ -12,4 +12,12 @@ if (mysqli_connect_errno()) {
 $sql = "SELECT * FROM `författare`";
 $result = mysqli_query($mysqli, $sql);
 
+
+// Se om query funkar
+if (!$result) {
+    echo "Error: " . mysqli_error($mysqli);
+    exit();
+}
+
+
 ?>
