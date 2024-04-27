@@ -72,6 +72,22 @@ if ($documentCount > 0) {
             </tr>
         </thead>';
     echo '<tbody>';
+    foreach ($allDocuments as $document) {
+        // Accessing 'författare' field directly
+        $authorName = isset($document->författare) ? $document->författare : 'N/A';
+    
+        echo '<tr>
+                <td>' . (isset($document->bok) ? $document->bok->id : 'N/A') . '</td>'; // Accessing 'id' from 'bok'
+                echo '<td>' . $authorName . '</td>';
+                echo '<td>' . (isset($document->bok) ? $document->bok->boktitel : 'N/A') . '</td>'; // Accessing 'boktitel' from 'bok'
+                echo '<td>' . (isset($document->bokserie[0]) ? $document->bokserie[0]->serietitel : 'N/A') . '</td>'; // Accessing 'serietitel' from the first element of 'bokserie'
+        echo '</tr>';
+    }
+    echo '</tbody>';
+    echo '</table>';
+} else {
+    echo '<h2>Data not found</h2>';
 
+    }
 }
 ?>
