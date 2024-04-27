@@ -1,4 +1,6 @@
 <?php
+
+
 try {
     $mongoClient = new MongoDB\Driver\Manager("mongodb://localhost:27017/");
 } catch (\Exception $e) {
@@ -53,5 +55,12 @@ if (isset($_POST['search'])) {
         'pipeline' => $pipeline,
         'cursor' => new stdClass(),
     ]);
+
+
+$cursor = $mongoClient->executeCommand('exjobb2', $command);
+$allDocuments = iterator_to_array($cursor);
+$documentCount = count($allDocuments);
+
+
 }
 ?>
