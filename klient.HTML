@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstore</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 <body>
+    <div class="container">
+        <input type="text" id="searchInput" placeholder="Search books">
+        <button class="knapp" id="searchBtn">Search</button>
+    </div>
+    <div id="searchResults"></div>
 
+    <script>
+        $(document).ready(function(){
+            $('#searchBtn').click(function(){
+                var searchQuery = $('#searchInput').val();
+                $.ajax({
+                    type: 'POST',
+                    url: 'SqlWebbServer.PHP',
+                    data: { search: searchQuery },
+                    success: function(response){
+                        $('#searchResults').html(response);
+                    },
+                    error: function(){
+                        $('#searchResults').html('<h2>Kunde inte hämta data</h2>');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
