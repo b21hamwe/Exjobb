@@ -29,5 +29,8 @@ if (isset($_POST['search'])) {
         'cursor' => new stdClass(),
     ]);
 
+    $cursor = $mongoClient->executeCommand('exjobb', $command);
+    $allDocuments = $cursor->toArray();
+    $documentCount = count($allDocuments);
 
 }
