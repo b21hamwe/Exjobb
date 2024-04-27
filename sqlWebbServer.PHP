@@ -49,7 +49,9 @@ if($result && mysqli_num_rows($result) > 0) {
               echo '</table>';
           } else {
               echo '<h2>Data not found</h2>';
+    }
 }
 
-    }
+    mysqli_close($mysqli);
+    
     ?>
