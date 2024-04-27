@@ -19,5 +19,18 @@ if (!$result) {
     exit();
 }
 
+$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Stäng koppling
+mysqli_close($mysqli);
+
+// Konverta till JSON format
+$json_data = json_encode($rows);
+
+// Spara JSON till fil
+file_put_contents('författare.json', $json_data);
+
+echo "JSON data has been saved to output.json";
+
 
 ?>
