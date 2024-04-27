@@ -12,5 +12,18 @@
     if(isset($_POST['search'])){
         $search = $_POST['search'];
 
+
+ //Medel Query
+ $sql = "SELECT * FROM `författare` 
+ JOIN `bok` ON författare.id = bok.id
+ JOIN `bokserie` ON bok.id = bokserie.id
+ WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
+
+ //Enkel Query
+ //$sql = "SELECT * FROM `författare` WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
+
+$result = mysqli_query($mysqli, $sql);
+
+
     }
     ?>
