@@ -33,4 +33,25 @@ if (isset($_POST['search'])) {
     $allDocuments = $cursor->toArray();
     $documentCount = count($allDocuments);
 
+
+    if ($documentCount > 0) {
+        echo '<table class="fashionable-table">';
+        echo '<thead>
+                <tr>
+                    <th>Author Id</th>  
+                    <th>Author Name</th>
+                </tr>
+            </thead>';
+        echo '<tbody>';
+        foreach ($allDocuments as $document) {
+            echo '<tr>
+                    <td>' . $document->id . '</td>';
+            echo '<td>' . $document->namn . '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody>';
+        echo '</table>';
+    } else {
+        echo '<h2>Data not found</h2>';
+    }
 }
