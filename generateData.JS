@@ -29,5 +29,6 @@ for (let x = 0; x < 500; x++) {
     mysqlCon.query(sql, function (err, result) {
         if (err) throw err;
     });
+    //Öka id räknare till författare
     authID++;
 }
