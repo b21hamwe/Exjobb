@@ -48,5 +48,10 @@ if (isset($_POST['search'])) {
         ]
     ];
 
+    $command = new MongoDB\Driver\Command([
+        'aggregate' => 'författare',
+        'pipeline' => $pipeline,
+        'cursor' => new stdClass(),
+    ]);
 }
 ?>
