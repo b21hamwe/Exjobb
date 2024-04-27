@@ -25,5 +25,18 @@
 $result = mysqli_query($mysqli, $sql);
 
 
+//Presentation av MYSQL data
+if($result && mysqli_num_rows($result) > 0) {
+    echo '<table class="fashionable-table">';
+    echo '<thead>
+                  <tr>
+                      <th>Author Id</th>  
+                      <th>Author name</th>
+                      <th>Book title</th>  
+                      <th>Serie title</th>
+                  </tr>
+              </thead>';
+}
+
     }
     ?>
