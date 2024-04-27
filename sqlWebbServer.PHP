@@ -8,4 +8,9 @@
         die("Failed to connect to MySQL: " . $mysqli->connect_error);
     }
 
+
+    if(isset($_POST['search'])){
+        $search = $_POST['search'];
+
+    }
     ?>
