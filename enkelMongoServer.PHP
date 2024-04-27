@@ -10,4 +10,24 @@ try {
 if (isset($_POST['search'])) {
     $search = $_POST['search'];
 
+    //Enkel Query
+    $pipeline = [
+        [
+            '$match' => [
+                '$or' => [
+                    ['id' => ['$regex' => $search]],
+                    ['namn' => ['$regex' => $search]]
+                ]
+            ]
+        ]
+    ];
+
+    //Exekvera query
+    $command = new MongoDB\Driver\Command([
+        'aggregate' => 'författare',
+        'pipeline' => $pipeline,
+        'cursor' => new stdClass(),
+    ]);
+
+
 }
