@@ -99,14 +99,10 @@ if ($documentCount > 0) {
         </thead>';
     echo '<tbody>';
     foreach ($allDocuments as $document) {
-        // Accessing 'författare' field directly
-        $authorName = isset($document->författare) ? $document->författare : 'N/A';
-    
-        echo '<tr>
-                <td>' . (isset($document->bok) ? $document->bok->id : 'N/A') . '</td>'; // Accessing 'id' from 'bok'
-                echo '<td>' . $authorName . '</td>';
-                echo '<td>' . (isset($document->bok) ? $document->bok->boktitel : 'N/A') . '</td>'; // Accessing 'boktitel' from 'bok'
-                echo '<td>' . (isset($document->författare[0]->id) ? $document->författare[0]->id : 'N/A') . '</td>'; // Accessing 'serietitel' from the first element of 'bokserie'
+        echo '<tr>';
+        echo '<td>' . (isset($document->bok) ? $document->bok->id : 'N/A') . '</td>'; // Book Id
+        echo '<td>' . (isset($document->författare) ? $document->författare : 'N/A') . '</td>'; // Author Name
+        echo '<td>' . (isset($document->bok) ? $document->bok->boktitel : 'N/A') . '</td>'; // Book Title
         echo '</tr>';
     }
     echo '</tbody>';
