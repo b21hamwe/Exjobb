@@ -106,7 +106,7 @@ if ($documentCount > 0) {
                 <td>' . (isset($document->bok) ? $document->bok->id : 'N/A') . '</td>'; // Accessing 'id' from 'bok'
                 echo '<td>' . $authorName . '</td>';
                 echo '<td>' . (isset($document->bok) ? $document->bok->boktitel : 'N/A') . '</td>'; // Accessing 'boktitel' from 'bok'
-                echo '<td>' . (isset($document->bokserie[0]) ? $document->bokserie[0]->serietitel : 'N/A') . '</td>'; // Accessing 'serietitel' from the first element of 'bokserie'
+                echo '<td>' . (isset($document->författare[0]->id) ? $document->författare[0]->id : 'N/A') . '</td>'; // Accessing 'serietitel' from the first element of 'bokserie'
         echo '</tr>';
     }
     echo '</tbody>';
