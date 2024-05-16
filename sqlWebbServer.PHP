@@ -39,7 +39,7 @@
         $search = $_POST['search'];
 
 
-    //Medel Query
+    //Svår Query
     $sql = "SELECT * FROM `författare` 
     JOIN `bok` ON författare.id = bok.id
     JOIN `bokserie` ON bok.id = bokserie.id
