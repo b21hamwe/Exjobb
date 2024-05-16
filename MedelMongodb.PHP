@@ -54,7 +54,7 @@ if (isset($_POST['search'])) {
         [
             '$lookup' => [
                 'from' => 'författare',
-                'localField' => 'bok.id',
+                'localField' => 'bok.författarId',
                 'foreignField' => 'id',
                 'as' => 'författare'
             ]
@@ -69,9 +69,8 @@ if (isset($_POST['search'])) {
         ],
         [
             '$project' => [
-                'författare' => '$id',
-                'bok' => '$bok',
-                
+                'författare' => '$namn', // Project author's name instead of ID
+                'bok' => '$bok'
             ]
         ]
     ];
