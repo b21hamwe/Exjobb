@@ -53,10 +53,10 @@ if (isset($_POST['search'])) {
         ],
         [
             '$lookup' => [
-                'from' => 'bokserie',
+                'from' => 'författare',
                 'localField' => 'bok.id',
                 'foreignField' => 'id',
-                'as' => 'bokserie'
+                'as' => 'författare'
             ]
         ],
         [
@@ -69,9 +69,9 @@ if (isset($_POST['search'])) {
         ],
         [
             '$project' => [
-                'författare' => '$namn',
+                'författare' => '$id',
                 'bok' => '$bok',
-                'bokserie' => '$bokserie'
+                
             ]
         ]
     ];
