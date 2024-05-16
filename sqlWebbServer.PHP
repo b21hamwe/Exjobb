@@ -45,6 +45,11 @@
     JOIN `bokserie` ON bok.id = bokserie.id
     WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
 
+    //Medel Query
+    $sql = "SELECT * FROM `författare` 
+    JOIN `bok` ON författare.id = bok.id
+    WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
+
     //Enkel Query
     //$sql = "SELECT * FROM `författare` WHERE författare.id LIKE '%$search%' OR författare.namn LIKE '%$search%'";
 
